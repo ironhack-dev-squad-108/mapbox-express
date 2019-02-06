@@ -22,10 +22,17 @@
   axios.get('/api/courts')
     .then(response => {
       // GOAL: see all courts
-			console.log('TCL: response.data', response.data)
+      let courts = response.data
+			console.log('TCL: courts', courts)
+      for (let i = 0; i < courts.length; i++) {
+        // coordinates is an array with 2 numbers: lng, lat
+        let coordinates = courts[i].location.coordinates
+        let color = 'green'
+        if (courts[i].sport === 'basketball') color = 'orange'
+        if (courts[i].sport === 'tennis') color = 'yellow'
+        let marker = new mapboxgl.Marker({ color })
+          .setLngLat(coordinates)
+          .addTo(map);
+      }
     })
-
-  let marker = new mapboxgl.Marker()
-    .setLngLat([30.5, 50.5])
-    .addTo(map);
 </script>
