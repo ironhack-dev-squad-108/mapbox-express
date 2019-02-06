@@ -75,11 +75,10 @@ app.use(flash());
 require('./passport')(app);
     
 
-const index = require('./routes/index');
-app.use('/', index);
-
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
-      
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
+  
+// Use all the routes from the file './routes/api.js' and prefix them by '/api'
+app.use('/api', require('./routes/api'));
 
 module.exports = app;
