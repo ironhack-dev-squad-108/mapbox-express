@@ -1,2 +1,10 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Mapbox express</h1>
+<ul>
+  {{#each courts}}
+    <li>
+      {{this.sport}} 
+      (lng: {{this.location.coordinates.[0]}}, 
+      lat: {{this.location.coordinates.[1]}})
+    </li>
+  {{/each}}
+</ul>

@@ -2,9 +2,13 @@ const express = require('express');
 const Court = require('../models/Court');
 const router = express.Router();
 
-/* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  Court.find()
+    .then(courts => {
+      res.render('index', {
+        courts
+      });
+    })
 });
 
 router.get('/add-court', (req, res, next) => {
