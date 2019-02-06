@@ -1,0 +1,16 @@
+<h1>Add a court</h1>
+
+{{!-- When the user submits the form, he's redirected to POST /add-court --}}
+<form action="/add-court" method="post">
+  Sport: 
+  {{!-- Will define a req.body.sport --}}
+  <select name="sport">
+    <option value="basketball">Basketball</option>
+    <option value="football">Football</option>
+    <option value="tennis">Tennis</option>
+  </select>
+  <br>
+  Longitude: <input type="number" step="any" name="lng"><br>
+  Latitude: <input type="number" step="any" name="lat"><br>
+  <button>Create</button>
+</form>
